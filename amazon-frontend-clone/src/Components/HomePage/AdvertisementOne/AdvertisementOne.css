@@ -18,6 +18,11 @@
     justify-content: center;
 }
 
+.ad_oneImage{
+    width: 300px;
+    height: 200px;
+}
+
 .AdvertisementOne_footer{
     padding: 15px;
     font-weight: 500;

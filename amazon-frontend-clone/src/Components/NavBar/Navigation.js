@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
 import "./NavBar.css"
+import { CartContext } from '../CartContext';
+import {Link} from 'react-router-dom';
 
 
 class NavBar extends Component{
+
+    static contextType = CartContext;
+
     constructor(props){
         super(props);
         this.state = { }
     }
 
     render(){
+
+        let {item, size, increment} = this.context;
+
         return (
             <div>
                 <div className='navbar__component'>
-                    <div className='navbar__logo'></div>
+                    <Link to=''>
+                        <div className='navbar__logo'></div>
+                    </Link>
                     <div className='navbar__locator'>
                         <div className='navbar__locatorImage'></div>
                         <div className='navbar__location'>Bangalore</div>
@@ -45,14 +55,16 @@ class NavBar extends Component{
                     </div>
                     <div className='navbar__text navbar__cart'>
                         <div className='cart__image'></div>
-                        <div className='cart__item'>0</div>
+                        <div className='cart__item'>{size}</div>
                         <div className='navbar__textcart'>Cart</div>
                     </div>
                 </div>
 
                 <div className='navbar__footer'>
                     <div className="navbar__footer_text">Best Seller</div>
-                    <div className="navbar__footer_text">Mobile</div>
+                    <Link to='/display'>
+                        <div className="navbar__footer_text">Mobile</div>
+                    </Link>
                     <div className="navbar__footer_text">Amazon Pay</div>
                     <div className="navbar__footer_text">Fashion</div>
                     <div className="navbar__footer_text">Electronics</div>
